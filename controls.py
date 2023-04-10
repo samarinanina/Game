@@ -1,6 +1,6 @@
 import pygame
 import sys
-from code.carrot import Carrot
+from carrot import Carrot
 from face import Face
 import time
 
