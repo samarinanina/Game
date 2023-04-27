@@ -6,7 +6,7 @@ class Face(pygame.sprite.Sprite):
     def __init__(self, screen):
         super(Face, self).__init__()
         self.screen = screen
-        self.image = pygame.image.load("face.png")
+        self.image = pygame.image.load("images_text/face.png")
         self.rect = self.image.get_rect()
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
