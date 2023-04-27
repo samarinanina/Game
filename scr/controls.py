@@ -26,50 +26,7 @@ def events(screen, rabbit, carrot):
                 rabbit.mleft = False
 
 
-def update_screen(bg_color, rabbit, screen, stats, scores, faces, carrot):
-    """обновление экрана"""
-    screen.fill(bg_color)
-    scores.show_score()
-    for carrot in carrot.sprites():
-        carrot.draw_carrot()
-    rabbit.output()  # вывод кролика
-    faces.draw(screen)
-    pygame.display.flip()
 
-
-def update_carrots(screen, faces, carrots, stats, scores):
-    """ обновляем позицию моркови """
-    carrots.update()
-    for carrot in carrots.copy():
-        if carrot.rect.bottom <= 0:
-            carrots.remove(carrot)
-    collisions = pygame.sprite.groupcollide(carrots, faces, True, True)
-    if collisions:
-        for faces in collisions.values():
-            stats.score += 10 * len(faces)
-        scores.image_score()
-        check_record(stats, scores)
-        scores.image_lives()
-    if len(faces) == 0:
-        carrots.empty()
-        create_army(screen, faces, True)
-
-
-def update_faces(stats, screen, scores, rabbit, faces, carrots):
-    """обновляет позицию лиц"""
-    faces.update()
-    if pygame.sprite.spritecollideany(rabbit, faces):
-        lost_life(stats, screen, scores, rabbit, faces, carrots)
-    faces_check(stats, screen, scores, rabbit, faces, carrots)
-
-
-def faces_check(stats, screen, scores, rabbit, faces, carrots):
-    """проверка, что лица дошли до низа экрана"""
-    screen_rect = screen.get_rect()
-    for face in faces.sprites():
-        if face.rect.bottom >= screen_rect.bottom:
-            lost_life(stats, screen, scores, rabbit, faces, carrots)
-            break
 
 
 def create_army(screen, faces, number):
@@ -109,9 +66,3 @@ def lost_life(stats, screen, scores, rabbit, faces, carrots):
 
 
 
-def check_record(stats, scores):
-    if stats.score > stats.best_score:
-        stats.best_score = stats.score
-        scores.image_best_score()
-        with open("images_text/best_score.txt", 'w') as f:
-            f.write(str(stats.best_score))
