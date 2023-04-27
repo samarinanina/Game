@@ -1,5 +1,6 @@
 import pygame, pygame_menu
 import controls
+import update
 
 from rabbit import Rabbit
 from pygame.sprite import Group
@@ -23,9 +24,9 @@ def run():
         controls.events(screen, rabbit, carrots)
         if stats.run_game:
             rabbit.update_rabbit()
-            controls.update_screen(bg_color, rabbit, screen, stats, scores, faces, carrots)
-            controls.update_carrots(screen, faces, carrots, stats, scores)
-            controls.update_faces(stats, screen, scores, rabbit, faces, carrots)
+            update.update_screen(bg_color, rabbit, screen, stats, scores, faces, carrots)
+            update.update_carrots(screen, faces, carrots, stats, scores)
+            update.update_faces(stats, screen, scores, rabbit, faces, carrots)
 
 
 menu = pygame_menu.Menu('Welcome', 400, 300, theme=pygame_menu.themes.THEME_SOLARIZED)
