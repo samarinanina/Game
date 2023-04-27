@@ -113,5 +113,5 @@ def check_record(stats, scores):
     if stats.score > stats.best_score:
         stats.best_score = stats.score
         scores.image_best_score()
-        with open("best_score.txt", 'w') as f:
+        with open("images_text/best_score.txt", 'w') as f:
             f.write(str(stats.best_score))
