@@ -35,6 +35,3 @@ menu.add.button('Play', run)
 menu.add.button('Quit', pygame_menu.events.EXIT)
 
 menu.mainloop(screen)
-
-
-
