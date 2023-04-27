@@ -4,9 +4,9 @@ class Stats():
         """инициализация статистики"""
         self.reset_stats()
         self.run_game = True
-        with open("best_score.txt", 'r') as f:
+        with open("images_text/best_score.txt", 'r') as f:
             self.best_score = int(f.readline())
     def reset_stats(self):
         """изменение статистики во время игры"""
-        self.lives_left = 3
+        self.lives_left = 1
         self.score = 0
