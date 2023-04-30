@@ -1,6 +1,6 @@
 import pygame.font
 from pygame.sprite import Group
-from life import Life
+from scr.life import Life
 
 
 class Scores():
