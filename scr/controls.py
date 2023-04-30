@@ -1,7 +1,7 @@
 import pygame
 import sys
-from carrot import Carrot
-from face import Face
+from scr.carrot import Carrot
+from scr.face import Face
 import time
 
 
@@ -36,12 +36,11 @@ def create_army(screen, faces, number):
     face_height = face.rect.height
     number_face_x = int((600 - 2 * face_width) / face_width)
     number_face_y = int((500 - 300 - 2 * face_height) / face_height)
+    face.change_speed()
     for row_number in range(number_face_y):
         for face_number in range(number_face_x):
             face = Face(screen)
             faces.add(face)
-            if number:
-                face.change_speed()
             face.x = face_width * (face_number + 1)
             face.y = face_height * (row_number + 1)
             face.rect.x = face.x
@@ -63,6 +62,3 @@ def lost_life(stats, screen, scores, rabbit, faces, carrots):
     else:
         stats.run_game = False
         sys.exit()
-
-
-
