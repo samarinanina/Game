@@ -1,11 +1,11 @@
 import pygame, pygame_menu
-import controls
-import update
+import scr.controls
+import scr.update
 
-from rabbit import Rabbit
+from scr.rabbit import Rabbit
 from pygame.sprite import Group
-from stats import Stats
-from scores import Scores
+from scr.stats import Stats
+from scr.scores import Scores
 
 pygame.init()
 screen = pygame.display.set_mode([600, 500])
@@ -14,19 +14,19 @@ bg_color = (250, 204, 190)
 rabbit = Rabbit(screen)
 carrots = Group()
 faces = Group()
-controls.create_army(screen, faces, False)
+scr.controls.create_army(screen, faces, False)
 stats = Stats()
 scores = Scores(screen, stats)
 
 
 def run():
     while True:
-        controls.events(screen, rabbit, carrots)
+        scr.controls.events(screen, rabbit, carrots)
         if stats.run_game:
             rabbit.update_rabbit()
-            update.update_screen(bg_color, rabbit, screen, stats, scores, faces, carrots)
-            update.update_carrots(screen, faces, carrots, stats, scores)
-            update.update_faces(stats, screen, scores, rabbit, faces, carrots)
+            scr.update.update_screen(bg_color, rabbit, screen, stats, scores, faces, carrots)
+            scr.update.update_carrots(screen, faces, carrots, stats, scores)
+            scr.update.update_faces(stats, screen, scores, rabbit, faces, carrots)
 
 
 menu = pygame_menu.Menu('Welcome', 400, 300, theme=pygame_menu.themes.THEME_SOLARIZED)
