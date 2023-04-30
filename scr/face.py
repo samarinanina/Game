@@ -6,13 +6,15 @@ class Face(pygame.sprite.Sprite):
     def __init__(self, screen):
         super(Face, self).__init__()
         self.screen = screen
-        self.image = pygame.image.load("images_text/face.png")
+        self.image = pygame.image.load("scr/images_text/face.png")
         self.rect = self.image.get_rect()
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
-        self.speed = 0.02
+        self.speed = 0.03
+
+
 
     def draw(self):
         """прорисовка лица"""
@@ -23,4 +25,5 @@ class Face(pygame.sprite.Sprite):
         self.rect.y = self.y
 
     def change_speed(self):
-        self.speed += 0.02
+        self.speed += 0.01
+        print(self.speed)
