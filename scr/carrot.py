@@ -7,9 +7,9 @@ class Carrot(pygame.sprite.Sprite):
     def __init__(self, screen, rabbit):
         super(Carrot, self).__init__()
         self.screen = screen
-        self.image = pygame.image.load("images_text/carrot.png")
+        self.image = pygame.image.load("scr/images_text/carrot.png")
         self.rect = self.image.get_rect()
-        self.speed =  5.5
+        self.speed = 2.5
         self.rect.centerx = rabbit.rect.centerx
         self.rect.top = rabbit.rect.top
         self.y = float(self.rect.y)
