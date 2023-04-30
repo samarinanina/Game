@@ -8,7 +8,7 @@ class Rabbit(Sprite):
     def __init__(self, screen):
         super(Rabbit, self).__init__()
         self.screen = screen
-        self.image = pygame.image.load("images_text/main_hero.png")
+        self.image = pygame.image.load("scr/images_text/main_hero.png")
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
         self.center = float(self.rect.centerx)
