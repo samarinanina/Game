@@ -15,3 +15,4 @@
 
 # Как запускать:
 git clone git@github.com:samarinanina/Game.git
+git checkout dev
