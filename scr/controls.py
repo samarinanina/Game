@@ -1,9 +1,11 @@
 import pygame
 import sys
+import pygame_menu
+
 from scr.carrot import Carrot
 from scr.face import Face
+from scr.config import const
 import time
-
 
 
 def events(screen, rabbit, carrot):
@@ -26,17 +28,15 @@ def events(screen, rabbit, carrot):
                 rabbit.mleft = False
 
 
-
-
-
 def create_army(screen, faces, number):
     """создание армии недовольных лиц"""
     face = Face(screen)
+    const.check += const.check_speed
     face_width = face.rect.width
     face_height = face.rect.height
-    number_face_x = int((600 - 2 * face_width) / face_width)
-    number_face_y = int((500 - 300 - 2 * face_height) / face_height)
-    face.change_speed()
+    number_face_x = int((const.height - 2 * face_width) / face_width)
+    number_face_y = int((const.width - const.height / 2 - 2 * face_height) / face_height)
+
     for row_number in range(number_face_y):
         for face_number in range(number_face_x):
             face = Face(screen)
@@ -45,20 +45,23 @@ def create_army(screen, faces, number):
             face.y = face_height * (row_number + 1)
             face.rect.x = face.x
             face.rect.y = face.rect.height * (1 + row_number)
-
-
+            face.change_speed()
 
 
 def lost_life(stats, screen, scores, rabbit, faces, carrots):
     """потеря одной жизни при столкновении с лицами"""
-    if stats.lives_left > 1:
-        stats.lives_left -= 1
+
+    if stats.lives_left > const.min_life:
+        stats.lives_left -= const.min_life
         scores.image_lives()
         faces.empty()
         carrots.empty()
         create_army(screen, faces, False)
         rabbit.create_rabbit()
-        time.sleep(1)
+        const.check -= const.check_speed
+        time.sleep(const.sec_stop)
     else:
-        stats.run_game = False
+        const.new_record = True
+        const.check = const.check_speed
+        import MyGame
         sys.exit()
