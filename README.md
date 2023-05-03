@@ -14,4 +14,4 @@
 
 
 # Как запускать:
-скопировать файлы с сохранением положения в директориях в PyCharm и запустить файл MyGame.py
+git clone git@github.com:samarinanina/Game.git
