@@ -1,5 +1,5 @@
 import pygame
-
+from scr.config import const
 
 class Carrot(pygame.sprite.Sprite):
     """инициализация моркови"""
@@ -9,7 +9,7 @@ class Carrot(pygame.sprite.Sprite):
         self.screen = screen
         self.image = pygame.image.load("scr/images_text/carrot.png")
         self.rect = self.image.get_rect()
-        self.speed = 2.5
+        self.speed = const.carrot_speed
         self.rect.centerx = rabbit.rect.centerx
         self.rect.top = rabbit.rect.top
         self.y = float(self.rect.y)
