@@ -1,3 +1,5 @@
+from scr.config import const
+
 class Stats():
     """статистика"""
     def __init__(self):
@@ -8,5 +10,5 @@ class Stats():
             self.best_score = int(f.readline())
     def reset_stats(self):
         """изменение статистики во время игры"""
-        self.lives_left = 3
+        self.lives_left = const.lives_amount
         self.score = 0
