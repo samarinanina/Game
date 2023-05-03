@@ -1,6 +1,6 @@
 import pygame
 from pygame.sprite import Sprite
-
+from scr.config import const
 
 class Rabbit(Sprite):
     """инициализация кролика"""
@@ -23,9 +23,9 @@ class Rabbit(Sprite):
     def update_rabbit(self):
         """ обновление позиции кролика"""
         if self.mright and self.rect.right < self.screen_rect.right:
-            self.center += 0.4
+            self.center += const.rabbit_speed
         elif self.mleft and self.rect.left > 0:
-            self.center -= 0.4
+            self.center -= const.rabbit_speed
 
         self.rect.centerx = self.center
 
