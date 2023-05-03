@@ -15,5 +15,9 @@
 
 # Как запускать:
 git clone git@github.com:samarinanina/Game.git
+
+cd Game/
+
 git checkout dev
+
 python3 MyGame.py
